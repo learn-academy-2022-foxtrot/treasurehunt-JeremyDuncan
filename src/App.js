@@ -22,11 +22,17 @@ const App = () => {
     Math.floor(Math.random() * board.length)
   );
 
+  // I can see a counter that shows how many guesses I have left. The counter
+  // starts at five and decrements one every time I click on a square that is
+  // not the treasure nor the bomb.
+  const [counter, setCounter] = useState(5);
+
   const handleGamePlay = (clickedSquare) => {
     // reassigns bomb location if it matches the treasure location
     if (bombLocation === treasureLocation) {
       setBombLocation(Math.floor(Math.random() * board.length));
     }
+
     //create a copy of the board
     let updateBoard = [...board];
 
@@ -39,6 +45,7 @@ const App = () => {
     } else {
       updateBoard[clickedSquare] = "🌳";
       setBoard(updateBoard);
+      setCounter(counter - 1);
     }
   };
 
