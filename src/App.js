@@ -23,6 +23,7 @@ const App = () => {
   );
   const [counter, setCounter] = useState(5);
   const [message, setMessage] = useState("");
+  const [gamePlay, setGamePlay] = useState(true);
 
   const handleGamePlay = (clickedSquare) => {
     // reassigns bomb location if it matches the treasure location
@@ -37,10 +38,12 @@ const App = () => {
       updateBoard[clickedSquare] = "💎";
       setBoard(updateBoard);
       setMessage(<h1 className="message">YOU WIN!!</h1>);
+      setGamePlay(false);
     } else if (clickedSquare === bombLocation) {
       updateBoard[clickedSquare] = "💣";
       setBoard(updateBoard);
       setMessage(<h1 className="message">YOU LOSE!!</h1>);
+      setGamePlay(false);
     } else {
       updateBoard[clickedSquare] = "🌳";
       setBoard(updateBoard);
@@ -48,13 +51,11 @@ const App = () => {
     }
   };
 
-  // I can see a message informing me that I won the game if I select the square
-  // that contains the treasure.
-
   const handleReset = () => {
     setBoard(["?", "?", "?", "?", "?", "?", "?", "?", "?"]);
     setTreasureLocation(Math.floor(Math.random() * board.length));
     setBombLocation(Math.floor(Math.random() * board.length));
+    setGamePlay(true);
     setMessage("");
   };
 
@@ -70,6 +71,7 @@ const App = () => {
               index={index}
               key={index}
               handleGamePlay={handleGamePlay}
+              gamePlay={gamePlay}
             />
           );
         })}

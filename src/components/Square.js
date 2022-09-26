@@ -1,8 +1,10 @@
 import React from "react";
 
-const Square = ({ boardPiece, handleGamePlay, index }) => {
+const Square = ({ boardPiece, handleGamePlay, index, gamePlay }) => {
   const handleClick = () => {
-    handleGamePlay(index);
+    if (gamePlay) {
+      handleGamePlay(index);
+    }
   };
 
   return (
