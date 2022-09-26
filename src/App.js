@@ -47,7 +47,20 @@ const App = () => {
     } else {
       updateBoard[clickedSquare] = "🌳";
       setBoard(updateBoard);
+    }
+
+    if (
+      board[clickedSquare] !== "🌳" &&
+      board[clickedSquare] !== "💣" &&
+      board[clickedSquare] !== "💎"
+    ) {
       setCounter(counter - 1);
+    }
+    if (gamePlay) {
+      if (counter === 0) {
+        setMessage(<h1 className="message">You Ran out of Turns!!</h1>);
+        setGamePlay(false);
+      }
     }
   };
 
@@ -57,6 +70,7 @@ const App = () => {
     setBombLocation(Math.floor(Math.random() * board.length));
     setGamePlay(true);
     setMessage("");
+    setCounter(5);
   };
 
   return (
