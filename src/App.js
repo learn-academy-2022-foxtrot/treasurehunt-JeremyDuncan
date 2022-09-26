@@ -42,6 +42,12 @@ const App = () => {
     }
   };
 
+  const handleReset = () => {
+    setBoard(["?", "?", "?", "?", "?", "?", "?", "?", "?"]);
+    setTreasureLocation(Math.floor(Math.random() * board.length));
+    setBombLocation(Math.floor(Math.random() * board.length));
+  };
+
   return (
     <div className="App">
       <h1>Treasure Hunt Game</h1>
@@ -57,6 +63,9 @@ const App = () => {
           );
         })}
       </div>
+      <button className="btn" onClick={handleReset}>
+        Reset Game
+      </button>
     </div>
   );
 };
