@@ -1,10 +1,13 @@
-import React from "react"
+import React from "react";
 
-const Square = () => {
+const Square = ({ boardPiece, handleClick }) => {
+  // let boardPiece = props.boardPiece;
   return (
     <>
-      <div className="square"></div>
+      <div className="square" onClick={handleClick}>
+        {boardPiece}
+      </div>
     </>
-  )
-}
-export default Square
+  );
+};
+export default Square;
