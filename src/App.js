@@ -15,8 +15,8 @@ const App = () => {
     "?",
   ]);
 
-  const handleClick = (e) => {
-    alert("Click");
+  const handleGamePlay = (clickedSquare) => {
+    alert(clickedSquare);
   };
 
   return (
@@ -24,7 +24,14 @@ const App = () => {
       <h1>Treasure Hunt Game</h1>
       <div className="board">
         {board.map((space, index) => {
-          return <Square boardPiece={space} handleClick={handleClick} />;
+          return (
+            <Square
+              boardPiece={space}
+              index={index}
+              key={index}
+              handleGamePlay={handleGamePlay}
+            />
+          );
         })}
       </div>
     </div>
