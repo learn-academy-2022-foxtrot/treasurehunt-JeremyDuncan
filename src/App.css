@@ -1,9 +1,25 @@
 h1 {
   text-align: center;
 }
-
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 200px;
   width: 200px;
   border: 1px solid black;
+  font-size: 12rem;
+  font-weight: bold;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 606px;
 }
