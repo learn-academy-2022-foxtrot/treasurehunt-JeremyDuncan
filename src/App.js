@@ -15,7 +15,9 @@ const App = () => {
     "?",
   ]);
 
-  const handleClick = (e) => {};
+  const handleClick = (e) => {
+    alert("Click");
+  };
 
   return (
     <div className="App">
